@@ -1,0 +1,60 @@
+{embed="embeds/_head"}
+{embed="embeds/_header"}
+
+{embed="embeds/_subnav"}
+
+<div class="page-content">
+	<div class="shell clearfix">
+		{exp:channel:entries channel="pages"}
+		<div class="grid">
+			{if pages_image}
+			<div id="page-image" class="grid__item one-whole">
+				{exp:ce_img:single src="{pages_image}" max_width="1100" max_height="360" add_dims="no" crop="yes" allow_scale_larger="no" quality="99"}
+			</div>{/if}<!--
+
+			{if pages_bodycontent}
+			--><div id="page-intro" class="grid__item one-whole clearfix">
+				{pages_bodycontent}
+					{heading}
+						{value}
+					{/heading}
+					{wysiwyg}
+						{if pages_logo}
+						<img src="{pages_logo}" alt="" style="float: right; max-width: 250px; padding: 0 0 45px 45px; margin-left: 20px;">
+						{/if}
+						{value}
+					{/wysiwyg}
+				{/pages_bodycontent}
+			</div><!--
+			-->{/if}</div>
+        {/exp:channel:entries}
+
+        <div class="grid businesses">
+			{exp:channel:entries channel="business_directory" dynamic="off" sort="asc"}
+			{if count != '1'}-->{/if}<div class="grid__item  one-third lap-one-half palm-one-whole">
+				<div class="wrapper">
+					<h3>{title}</h3>
+					<div class="details">
+						<h4>PABC Member</h4>
+						<p>{busdir_member}</p>
+						{if busdir_email}<p><a href="mailto:{busdir_email}" class="email">{busdir_email}</a></p>{/if}<br>
+						{if busdir_address}
+						<h4>Address</h4>
+						<p>{busdir_address}</p>
+						<p><a href="https://www.google.com/maps/preview#!q={busdir_address}" target="_blank">Get Directions</a></p><br>{/if}
+						{if busdir_phone OR busdir_website}
+						<h4>Contact</h4>
+						{/if}
+						{if busdir_phone}<p>{busdir_phone}</p>{/if}
+						{if busdir_website}<p><a href="{busdir_website}">Website</a></p>{/if}
+					</div>
+				</div>
+			</div>{if count != total_results}<!--{/if}
+			{/exp:channel:entries}
+		</div>
+
+		{embed="embeds/_crumbs"}
+	</div>
+</div>
+
+{embed="embeds/_footer"}

@@ -1,0 +1,43 @@
+/* Breadcrumbs */
+#crumbs-list {
+	float: left;
+	clear: both;
+	margin-top: 25px;
+	border: 1px solid lighten( $brand-purple, 60% );
+	@include vendor(border-radius, 4px);
+
+	li {
+		position: relative;
+		float: left;
+		border-right: 1px solid lighten( $brand-purple, 60% );
+		margin-bottom: 0px;
+
+		a {
+			font-family: $noto;
+			display: block;
+			font-size: 13px;
+			font-weight: 600;
+			letter-spacing: -.1em;
+			padding: 6px 15px 6px;
+			color: lighten( $brand-purple, 45% );
+			text-decoration: none;
+
+			@include media-query(palm) {
+				font-size: 12px;
+				padding: 4px 10px 4px;
+			}
+		}
+
+		&:last-child {
+			border-right: 0px;
+
+			a {
+				color: $brand-red;
+			}
+		}
+	}
+
+	@include media-query(portable) {
+		margin: 25px;
+	}
+}

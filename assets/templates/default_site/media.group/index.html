@@ -1,0 +1,44 @@
+{embed="embeds/_head"}
+
+<script src="/assets/js/audiojs/audio.min.js"></script>
+
+{embed="embeds/_header"}
+<div class="page-content media-content">
+	<div class="shell clearfix">
+		<div class="grid"><!--
+			--><div class="grid__item one-whole clearfix">
+				<h1>Prince Media</h1>
+				<br><br>
+			</div><!--
+		--></div>
+		<div class="grid"><!--
+			{exp:channel:entries channel="podcast" dynamic="no" category="13" limit="20"}
+			--><div class="grid__item one-whole">
+				<div class="audio-wrapper {switch='odd|even'}">
+					<div class="grid">
+						<div class="grid__item one-half palm-wide-one-whole palm-one-whole">
+							<h2>{title}</h2>
+							<p class="speaker">{podcast_speaker} - {entry_date format="%F %j, %Y"}</p>
+							{exp:scripturizer}
+							<p>{podcast_summary}</p>
+							{/exp:scripturizer}
+						</div><div class="grid__item one-half palm-wide-one-whole palm-one-whole">
+							{podcast_audiofile}
+							<audio src="{url}" preload="none" />
+							{/podcast_audiofile}
+						</div>
+					</div>
+				</div>
+			</div><!--
+			{/exp:channel:entries}
+		--></div>
+	</div>
+</div>
+
+<script>
+  audiojs.events.ready(function() {
+    var as = audiojs.createAll();
+  });
+</script>
+
+{embed="embeds/_footer"}

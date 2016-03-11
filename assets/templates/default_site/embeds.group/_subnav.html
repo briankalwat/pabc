@@ -1,0 +1,27 @@
+<div id="subnav">
+	<div class="shell clearfix">
+		{exp:navee:custom 
+			nav_title="mainnav" 
+			wrap_type="h1" 
+			start_nav_from_parent="true"
+			include_single_parent="true"
+		}
+		{text}
+		{/exp:navee:custom}
+
+		{exp:navee:custom 
+			nav_title="mainnav" 
+			wrap_type="ul" 
+			id="subnav-list"
+			first_class="first"
+			last_class="last"
+			start_nav_from_parent="true"
+			selected_class_on_parents="true"
+		}
+			<li class="{class}">
+				<a href="{link}">{if name}{name}{if:else}{text}{/if}</a>{kids}
+				<div class="arrow"></div>
+			</li>
+		{/exp:navee:custom}
+	</div>
+</div>

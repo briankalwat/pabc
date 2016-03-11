@@ -1,0 +1,149 @@
+{embed="embeds/_head"}
+{embed="embeds/_header"}
+{exp:channel:entries channel="pages"}
+
+{embed="embeds/_subnav"}
+
+<div class="page-content">
+	<div class="shell clearfix">
+		<div class="grid">
+			{if pages_image}
+			<div id="page-image" class="grid__item one-whole">
+				{exp:ce_img:single src="{pages_image}" max_width="1100" max_height="360" crop="yes" allow_scale_larger="no" quality="99"}
+			</div>{/if}<!--
+
+
+			{if pages_bodycontent}
+			--><div id="page-intro" class="grid__item one-whole">
+				{pages_bodycontent}
+					{heading}
+						{value}
+					{/heading}
+					{wysiwyg}
+						{value}
+					{/wysiwyg}
+				{/pages_bodycontent}
+			</div><!--
+{/exp:channel:entries}
+			-->{/if}
+				{exp:channel:entries
+					channel="staff"
+					disable="categories"
+					dynamic="no"
+					limit="1"
+					orderby="staff_order"
+					sort="asc"
+				}
+				<div id="content">
+		           	<div class="grid__item  one-whole">
+		           		<div class="grid"><!--
+		           			--><div class="grid__item five-twelfths palm-one-whole">
+			           			<div class="staff-container">
+				           			<div class="staff-image" style="background: url({staff_photo}) no-repeat center center; background-size: cover; height: 260px;"></div>
+				           			{if staff_social}
+				           			<ul class="staff-social">
+				       					{staff_social}
+					       					{if staff_social:facebook}<li class="facebook"><a href="{staff_social:facebook}" target="_blank">&#62220;</a></li>{/if}
+					       					{if staff_social:twitter}<li class="twitter"><a href="{staff_social:twitter}" target="_blank">&#62217;</a></li>{/if}
+					       					{if staff_social:googleplus}<li class="google"><a href="{staff_social:googleplus}" target="_blank">&#62223;</a></li>{/if}
+				       					{/staff_social}
+				       				</ul>
+				       				{/if}
+				           			<h2>{title}</h2>
+				           			<p class="position">{staff_position}</p>
+				           			<a href="mailto:{staff_email}" class="email">{staff_email}</a>
+				           			{if staff_extension}<p class="phone">Extension {staff_extension}</p>{/if}
+				           		</div>
+		           			</div><!--
+		           			--><div class="grid__item seven-twelfths palm-one-whole">
+			           			<div class="staff-container bio">
+		           					{staff_biography}
+			           			</div>
+		           			</div><!--
+		           		--></div>
+		           		{!-- <div class="staff-container">
+		           			<div class="staff-image" style="background: url({staff_photo}) no-repeat center center; background-size: cover; height: 260px;"></div>
+		           			<h2>{title}</h2>
+		           			<a href="mailto:{staff_email}">{staff_email}</a>
+		           		</div> --}
+		           		{/exp:channel:entries}
+		           	</div><!--
+		         --><div class="grid__item one-whole">
+		         		{exp:channel:entries channel="staff" category="11" dynamic="no" limit="1"}
+		         		{categories}
+		         		<h2>{category_name}</h2><br>
+		         		{/categories}
+		         		{/exp:channel:entries}
+		           	</div><!--
+		           	{exp:channel:entries
+						channel="staff"
+						category="11"
+						dynamic="no"
+						offset="1"
+						orderby="staff_order"
+						sort="asc"
+					}
+		       	 --><div class="grid__item  one-quarter lap-one-third palm-one-whole">
+		       			<div class="staff-container">
+		       				<div class="staff-image" style="background: url({staff_photo}) no-repeat center center; background-size: cover;"></div>
+		       				<ul class="staff-social">
+		       					{if staff_social}
+			           			<ul class="staff-social">
+			       					{staff_social}
+				       					{if staff_social:facebook}<li class="facebook"><a href="{staff_social:facebook}" target="_blank">&#62220;</a></li>{/if}
+				       					{if staff_social:twitter}<li class="twitter"><a href="{staff_social:twitter}" target="_blank">&#62217;</a></li>{/if}
+				       					{if staff_social:googleplus}<li class="google"><a href="{staff_social:googleplus}" target="_blank">&#62223;</a></li>{/if}
+			       					{/staff_social}
+			       				</ul>
+			       				{/if}
+		       				</ul>
+		       				<h3>{title}</h3>
+		       				<p class="position">{staff_position}</p>
+		       				<a href="mailto:{staff_email}" class="email">{staff_email}</a>
+		       				{if staff_extension}<p class="phone">Extension {staff_extension}</p>{/if}
+		       			</div>
+		           	</div><!--
+		           	{/exp:channel:entries}
+		         --><div class="grid__item one-whole">
+		         		{exp:channel:entries channel="staff" category="12" dynamic="no" limit="1"}
+		         		{categories}
+		         		<h2>{category_name}</h2><br>
+		         		{/categories}
+		         		{/exp:channel:entries}
+		           	</div><!--
+		           	{exp:channel:entries
+						channel="staff"
+						category="12"
+						dynamic="no"
+						orderby="staff_order"
+						sort="asc"
+					}
+		       	 --><div class="grid__item  one-quarter lap-one-third palm-one-whole">
+		       			<div class="staff-container">
+		       				<div class="staff-image" style="background: url({staff_photo}) no-repeat center center; background-size: cover;"></div>
+		       				<ul class="staff-social">
+		       					{if staff_social}
+			           			<ul class="staff-social">
+			       					{staff_social}
+				       					{if staff_social:facebook}<li class="facebook"><a href="{staff_social:facebook}" target="_blank">&#62220;</a></li>{/if}
+				       					{if staff_social:twitter}<li class="twitter"><a href="{staff_social:twitter}" target="_blank">&#62217;</a></li>{/if}
+				       					{if staff_social:googleplus}<li class="google"><a href="{staff_social:googleplus}" target="_blank">&#62223;</a></li>{/if}
+			       					{/staff_social}
+			       				</ul>
+			       				{/if}
+		       				</ul>
+		       				<h3>{title}</h3>
+		       				<p class="position">{staff_position}</p>
+		       				<a href="mailto:{staff_email}" class="email">{staff_email}</a>
+		       				{if staff_extension}<p class="phone">Ext {staff_extension}</p>{/if}
+		       			</div>
+		           	</div><!--
+		           	{/exp:channel:entries}
+	        	 --></div>
+       </div>
+		{embed="embeds/_crumbs"}
+	</div>
+</div>
+
+
+{embed="embeds/_footer"}

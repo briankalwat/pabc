@@ -1,0 +1,22 @@
+.DS_Store
+
+# Images
+images/avatars/
+images/captchas/
+images/smileys/
+images/member_photos/
+images/signature_attachments/
+images/pm_attachments/
+
+# For security do not publish the following files
+pave
+images
+themes
+admin.php
+index.php
+
+# Caches
+sized/
+thumbs/
+_thumbs/
+*/expressionengine/cache/*

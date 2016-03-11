@@ -1,0 +1,65 @@
+{embed="embeds/_head"}
+
+<script src="/assets/js/jquery.flexslider-min.js"></script>
+
+{embed="embeds/_header"}
+<div id="flexslider">
+	<div class="shell clearfix">
+		<div class="flexslider">
+			<ul class="slides">
+				{exp:channel:entries channel="home_carousel" disable="member_data|category_fields" status="open" orderby="carousel_order" sort="asc" dynamic="off"}
+					<li style="background: #{carousel_bg};">
+						{if carousel_textoverlay == 'y'}
+							<div class="slide-content">
+								<h2>{title}</h2>
+								<p>{carousel_subtext}</p>
+								{carousel_link}
+									<a href="{carousel_link:url}" style="color: #{carousel_bg};">{carousel_link:text}</a>
+								{/carousel_link}
+							</div>
+							<div class="inner">{exp:ce_img:single src="{carousel_image}{carousel_image:file}{/carousel_image}" add_dims="no"}</div>
+							{!-- {carousel_image var_prefix="carim"}
+							{if carousel_image:greyscale == 'greyscale'}
+								{carim:file}
+								{exp:ce_img:single src="{carim:file}" max_width="1200" max_height="460" crop="yes" allow_scale_larger="no" bg_color="{carousel_bg}" filter="grayscale|opacity,{carim:opacity}|gaussian_blur,{carim:blur}" quality="99"}
+							{if:else}
+								{exp:ce_img:single src="{carim:file}" max_width="1200" max_height="460" crop="yes" allow_scale_larger="no" bg_color="{carousel_bg}" filter="opacity,{carim:opacity}|gaussian_blur,{carim:blur}" quality="99"}
+							{/if}
+							{/carousel_image} --}
+						{if:else}
+							<a href="{carousel_link}{carousel_link:url}{/carousel_link}"><div class="inner">{exp:ce_img:single src="{carousel_image}{carousel_image:file}{/carousel_image}" add_dims="no"}</div></a>
+						{/if}
+					</li>
+				{/exp:channel:entries}
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+<div id="home" class="page-content">
+	<div class="shell clearfix">
+		<div class="grid">
+			{exp:channel:entries channel="home_content" limit="3" dynamic="no" sort="asc"}
+				{if count > '1'}-->{/if}<div class="grid__item  one-third palm-one-whole">
+					<div class="wrapper">
+						<h2>{title}</h2>
+						{home_content}
+					</div>
+				</div>{if count != total_results}<!--{/if}
+			{/exp:channel:entries}
+	    </div>
+	</div>
+</div>
+
+<script>
+	$('.flexslider').flexslider({
+		animation: "slide",
+		touch: true,
+		slideshowSpeed: 5000,
+		animationSpeed: 400,
+		pauseOnHover: true
+	});
+</script>
+
+{embed="embeds/_footer"}

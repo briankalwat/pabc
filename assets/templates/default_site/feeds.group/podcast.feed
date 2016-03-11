@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+<channel>
+	{exp:channel:entries channel="podcast" limit="1" category="{segment_3_category_id}"}
+		{categories}
+			<title>{category_name}</title>
+			<link>http://pabc.org/feeds/{if segment_2}{segment_2}/{/if}{if segment_3}{segment_3}{/if}</link>
+			<language>en-us</language>
+			<copyright>&#xA9; {current_time format="%Y"} Prince Avenue Baptist Church</copyright>
+			<itunes:subtitle></itunes:subtitle>
+			<itunes:author>Prince Avenue Baptist Church</itunes:author>
+			<itunes:summary>{category_description}</itunes:summary>
+			<description>{category_description}</description>
+			<itunes:owner>
+				<itunes:name>{podcast-owner}</itunes:name>
+				<itunes:email>{podcast-email}</itunes:email>
+			</itunes:owner>
+			<itunes:image href="http://pabc.org/assets/images/pabc_podcast_artwork.jpg" />
+			<itunes:category text="Religion &amp; Spirituality">
+				<itunes:category text="Christianity" />
+			</itunes:category>
+		{/categories}
+	{/exp:channel:entries}
+	{exp:channel:entries channel="podcast" limit="100" category="{segment_3_category_id}"}
+		<item>
+			<title>{exp:xml_encode}{title}{/exp:xml_encode}</title>
+			<itunes:author>{exp:xml_encode}{podcast_speaker}{/exp:xml_encode}</itunes:author>
+			{if podcast_subtitle}<itunes:subtitle>{exp:xml_encode}{podcast_subtitle}{/exp:xml_encode}</itunes:subtitle>{/if}
+			<itunes:summary>{exp:xml_encode}{podcast_summary}{/exp:xml_encode}</itunes:summary>
+			{podcast_audiofile}
+			<enclosure url="{url}" length="{size unformatted="yes"}" type="{kind}/{extension}" />
+			<guid>{url}</guid>
+			{/podcast_audiofile}
+			<pubDate>{entry_date format="%D, %j %M %Y %H:%i:%s %T"}</pubDate>
+		</item>
+	{/exp:channel:entries}
+</channel>
+</rss>

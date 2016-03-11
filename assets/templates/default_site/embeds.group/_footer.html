@@ -1,0 +1,20 @@
+<footer id="footer">
+	<div class="shell">
+		<p>&copy; {current_time format="%Y"} Prince Avenue Baptist Church</p>
+		{exp:navee:custom 
+			nav_title="footernav" 
+			wrap_type="ul" 
+			id="footernav"
+			first_class="first"
+			last_class="last"
+			max_depth="1"
+		}
+			<li class="{class}"><a href="{link}">{text}</a>{kids}</li>
+		{/exp:navee:custom}
+	</div>
+</footer>
+
+</div><!-- END WRAPPER -->
+
+</body>
+</html>

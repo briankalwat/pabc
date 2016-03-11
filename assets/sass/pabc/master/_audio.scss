@@ -1,0 +1,112 @@
+$player-height: 38px;
+
+
+.media-content {
+	.audio-wrapper {
+
+		h2 {
+			margin-bottom: 5px;
+		}
+
+		.speaker {
+			font-family: $titillium;
+			font-size: 20px;
+			font-weight: 600;
+			letter-spacing: -.03em;
+			margin-bottom: 10px;
+			color: lighten($brand-purple,30);
+		}
+
+		.audiojs {
+			width: 100%;
+			height: $player-height;
+			background: $brand-purple;
+			@include vendor(border-radius, 5px);
+
+			.play-pause {
+				width: 15%;
+				height: 100%;
+				margin: 0px;
+				padding: 0px;
+				border: 0px;
+
+				.play, .pause, .loading, .error {
+					background: none;
+					width: 100%;
+					height: 100%;
+		            text-align: center;
+		            line-height: $player-height;
+		            color: #fff;
+		            font-size: 16px;
+		            text-indent: 4px;
+				}
+
+				.play, .pause {
+					cursor: pointer;
+				}
+			}
+
+			.scrubber {
+				width: 55%;
+				height: 100%;
+				margin: 0px;
+				padding: 0px;
+				border: 0px;
+				background: lighten($brand-purple, 3);
+				cursor: pointer;
+
+				.progress {
+					height: $player-height - 14;
+					margin: 7px;
+					background: $brand-red;
+					@include vendor(border-radius, 1px);
+				}
+
+				.loaded {
+					height: $player-height - 14;
+					margin: 7px;
+					background: darken($brand-purple,10);
+					@include vendor(border-radius, 1px);
+				}
+			}
+
+			.time {
+				width: 30%;
+				height: 100%;
+				margin: 0px;
+				padding: 0px;
+				border: 0px;
+				text-align: center;
+
+				.played, .duration {
+					line-height: $player-height;
+					font-family: 'Noto Sans', sans-serif !important;
+					font-weight: 900;
+				}
+			}
+		}
+	}
+
+	@include media-query(portable) {
+		h1, p {
+			padding: 0 23px;
+		}
+
+		.audio-wrapper {
+			padding: 0 23px;
+			margin-bottom: 20px;
+
+			p {
+				padding: 0px;
+			}
+
+			.scrubber {
+				width: 45% !important;
+			}
+
+			.time {
+				width: 40% !important;
+			}
+		}
+	}
+}

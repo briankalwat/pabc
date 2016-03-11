@@ -1,0 +1,8 @@
+name: "pabc"
+
+tasks: 
+
+	sass:
+	    src: "assets/sass/**/*"
+	    combine: false
+	    dest: "assets/css/"

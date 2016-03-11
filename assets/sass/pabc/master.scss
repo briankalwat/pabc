@@ -1,0 +1,46 @@
+@charset "UTF-8";
+/*------------------------------------*\
+    master.css | pabc.org
+\*------------------------------------*/
+/**
+ *
+ * sass --watch style.scss:style.min.css --style compressed
+ *
+ * Here we pull in some variables, include the inuit.css framework, then add our
+ * project-specific components afterwards.
+ */
+
+
+/*	------------------------------------------------------------------------------
+	Setup (inuit defaults & overrides)
+*/
+@import "vars";
+@import "../_inuit.css/inuit";
+
+/*	------------------------------------------------------------------------------
+	Shared Elements
+	@import "../../_shared/example"
+*/
+
+/*	Fonts (see /assets/sass/_shared/fonts/ for available font options) */
+@import "../_shared/fonts/pictos";
+
+/*	Remaining shared elements */
+@import "../_shared/flexslider";
+
+
+/*	------------------------------------------------------------------------------
+	Master Elements
+	@import "master/example";
+*/
+@import "master/_reset";
+@import "master/_mmenu";
+@import "master/_fonts";
+@import "master/_global";
+@import "master/_navigation";
+@import "master/_flexslider";
+@import "master/_pagecontent";
+@import "master/_breadcrumbs";
+@import "master/_footer";
+@import "master/_contactform";
+@import "master/_audio";

@@ -1,0 +1,105 @@
+</head>
+<body class="preload">
+
+<div><!-- BEGIN WRAPPER -->
+
+{if logged_in}
+<div id="usernav">
+	<div class="shell clearfix">
+		<a href="#" id="tab">{screen_name}</a>
+		{exp:navee:custom 
+			nav_title="usernav" 
+			wrap_type="ul" 
+			id="usernav-list"
+			first_class="first"
+			last_class="last"
+		}
+				<li {if class}class="{class}"{/if}><a href="{link}">{text}</a>{kids}</li>
+		{/exp:navee:custom}
+	</div>
+</div>
+{/if}
+
+<nav id="my-menu">
+	<ul id="mobile-nav" class="mobile-nav">
+		{exp:navee:custom 
+			nav_title="mainnav" 
+			wrap_type="none" 
+		}
+			<li {if class}class="{class}"{/if}><a href="{link}">{text}</a><ul>{kids}</ul></li>
+		{/exp:navee:custom}
+		{exp:navee:custom 
+			nav_title="topnav" 
+			wrap_type="none" 
+		}
+			<li {if class}class="{class}"{/if}><a href="{link}">{text}</a><ul>{kids}</ul></li>
+		{/exp:navee:custom}
+	</ul>
+</nav>
+
+<script>
+$(function() {
+  $("#my-menu").mmenu({
+     position: "right",
+     zposition: "back"
+  });
+});
+</script>
+
+{!-- <div id="mobile-nav-wrapper">
+	{exp:navee:custom 
+		nav_title="mainnav" 
+		wrap_type="ul" 
+		id="mobile-nav"
+		class="mobile-nav"
+		first_class="first"
+		last_class="last"
+	}
+		<li {if class}class="{class}"{/if}><a href="{link}">{text}</a>{kids}</li>
+	{/exp:navee:custom}
+</div> --}
+
+<header>
+	<div class="shell">
+		<div class="grid"><!--
+	        --><div class="grid__item  four-twelfths visuallyhidden--portable">
+	           <a href="/" id="logo">{exp:ce_img:single src="/assets/images/logo.png" max_width="1100" max_height="360" add_dims="no" crop="yes" allow_scale_larger="no" quality="99" attributes="alt='Prince Avenue Baptist Church'"}</a>
+	        </div><!--
+	        --><div class="grid__item  eight-twelfths visuallyhidden--portable">
+	           {exp:navee:custom 
+					nav_title="topnav" 
+					wrap_type="ul" 
+					id="topnav-list"
+					first_class="first"
+					last_class="last"
+				}
+   					<li {if class}class="{class}"{/if}><a href="{link}">{text}</a>{kids}</li>
+				{/exp:navee:custom}
+				{exp:navee:custom 
+					nav_title="mainnav" 
+					wrap_type="ul" 
+					id="mainnav-list"
+					first_class="first"
+					last_class="last"
+					selected_class_on_parents="true"
+				}
+   					<li {if class}class="{class}"{/if}><a href="{link}">{if name}{name}{if:else}{text}{/if}</a>{kids}</li>
+				{/exp:navee:custom}
+	        </div><!--
+	    	--><div id="mobile-header" class="grid__item  one-whole visuallyhidden--desk">
+	    		<div class="grid"><!--
+	    			--><div class="grid__item one-half">
+	    				<a href="/" id="logo">{exp:ce_img:single src="/assets/images/logo.png" max_width="1100" max_height="360" add_dims="no" crop="yes" allow_scale_larger="no" quality="99" attributes="alt='Prince Avenue Baptist Church'"}</a>
+	    			</div><!--
+	    			--><div class="grid__item one-half">
+	    				<a href="#my-menu" class="mobile-nav-trigger">
+			           		<span></span>
+			           		<span></span>
+			           		<span></span>
+			            </a>
+	    			</div><!--
+	    		--></div>
+	        </div><!--
+	    --></div>
+   </div>
+</header>

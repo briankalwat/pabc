@@ -1,0 +1,30 @@
+{embed="embeds/_head"}
+
+{embed="embeds/_header"}
+<div class="page-content">
+	<div class="shell clearfix">
+		<div class="grid"><!--
+			--><div class="grid__item one-whole clearfix">
+				<h1>Event Registration</h1>
+				<br><br>
+			</div><!--
+		--></div>
+		<div class="grid registrations">
+			{exp:channel:entries channel="registrations" dynamic="off" orderby="registrations_startdate" sort="asc"}
+			{if count != '1'}-->{/if}<div class="grid__item one-third lap-one-half palm-one-whole">
+				<div class="wrapper">
+					<h3>{title}</h3>
+					<div class="details">
+						<h4>{registrations_startdate format="%F %j%S, %Y"}</h4>
+						<p>{if registrations_description}{exp:eehive_hacksaw chars="140" append="&hellip;"}{registrations_description}{/exp:eehive_hacksaw}{if:else}No Event Description{/if}</p>
+						<a href="{registrations_url}" target="_blank" class="btn">Register Now</a>
+						<p class="close-date">Closes {expiration_date format="%n/%j/%y"}</p>
+					</div>
+				</div>
+			</div>{if count != total_results}<!--{/if}
+			{/exp:channel:entries}
+		</div>
+	</div>
+</div>
+
+{embed="embeds/_footer"}

@@ -1,0 +1,78 @@
+{embed="embeds/_head"}
+{embed="embeds/_header"}
+{exp:channel:entries channel="pages"}
+
+{embed="embeds/_subnav"}
+
+<div class="page-content">
+	<div class="shell clearfix">
+		<div class="grid">
+			{if pages_image}
+			<div id="page-image" class="grid__item one-whole">
+				{exp:ce_img:single src="{pages_image}" max_width="1100" max_height="360" add_dims="no" crop="yes" allow_scale_larger="no" quality="99"}
+			</div>{/if}<!--
+
+
+			{if pages_bodycontent}
+			--><div id="page-intro" class="grid__item one-whole clearfix">
+				{pages_bodycontent}
+					{heading}
+						{value}
+					{/heading}
+					{wysiwyg}
+						{if pages_logo}
+						<img src="{pages_logo}" alt="" class="page-logo">
+						{/if}
+						{value}
+					{/wysiwyg}
+				{/pages_bodycontent}
+			</div><!--
+			-->{/if}{if parents}<div class="grid__item  one-third palm-one-whole">
+	           <div id="sidebar">
+	           	<ul>
+	           		{parents field="page" orderby="tab_order" sort="asc"}
+	           			<li><a href="#" id="{parents:entry_id}" class="{if parents:count == '1'} selected{/if}">{parents:title}</a></li>
+	           		{/parents}
+	           	</ul>
+	           </div>
+	       </div>{/if}<!--
+
+	    -->{if parents}<div class="grid__item  two-thirds palm-one-whole">
+	    		<div id="content">
+	    			<!-- Page Tabs -->
+	    			<ul id="tabs">
+	    			{parents field="page" orderby="tab_order" sort="asc"}
+	    				<li class="{parents:entry_id} tab{if parents:count == '1'} selected{/if}">
+	    				<h2>{parents:title}</h2>
+	    				{parents:page_content}
+	    					{heading}
+	    						{value}
+	    					{/heading}
+	    					{wysiwyg}
+	    						{value}
+	    					{/wysiwyg}
+	    					{gallery}
+	    						{if images}
+    								{images}
+    									Thumbnail: <img src="{thumb}" /><br />
+    									Original: <img src="{image}" /><br />
+    									Image type: {extension}<br />
+    									Image size: {size}<br />
+    									Caption: {caption}<br />
+    								{/images}
+    							{/if}
+	    					{/gallery}
+	    				{/parents:page_content}
+	    				</li>
+	    			{/parents}
+	    			</ul>
+	    			<!-- end Page Tabs -->
+				</div>
+	       </div>{/if}
+       </div>
+		{embed="embeds/_crumbs"}
+	</div>
+</div>
+{/exp:channel:entries}
+
+{embed="embeds/_footer"}

@@ -1,0 +1,421 @@
+/* Page Content */
+.page-content {
+
+	a {
+		color: $brand-red;
+		text-decoration: underline;
+	}
+
+	.shell {
+		padding: 50px;
+		@include vendor(border-radius, 5px);
+	}
+
+	.wrapper {
+		padding: 0 20px 20px 0;
+	}
+
+	ul {
+		li {
+			font-size: 20px;
+			line-height: 24px;
+			margin-bottom: 15px;
+		}
+	}
+
+	#crumbs-list {
+		li {
+			font-family: $noto;
+			font-size: 16px;
+			line-height: 22px;
+		}
+	}
+
+	#page-image {
+		display: block;
+		margin-bottom: 40px;
+
+		img {
+			@include vendor(border-radius, 5px);
+		}
+	}
+	
+	#page-intro {
+		display: block;
+		margin-bottom: 40px;
+
+		.page-logo {
+			float: right; 
+			max-width: 250px; 
+			padding: 0 0 45px 45px; 
+			margin-left: 20px;
+
+			@include media-query(palm) {
+				float: none;
+				max-width: 100%;
+				max-height: 250px;
+				padding: 0 20px;
+				margin: 30px auto;
+			}
+		}
+
+		h2 {
+			font-size: 42px;
+			line-height: 42px;
+			margin-bottom: 25px;
+			text-align: left;
+		}
+
+		p {
+			font-size: 18px;
+			line-height: 28px;
+			margin-bottom: 15px;
+			text-align: left;
+		}
+
+		a {
+			color: $brand-red;
+			text-decoration: underline;
+		}
+
+		.tricol {
+			width: 33.333%;
+			float: left;
+			padding-right: 40px;
+			text-align: center;
+			margin: 40px 0;
+		}
+	}
+
+	#sidebar {
+		ul {
+			li {
+				margin-bottom: 0px;
+				
+				a {
+					display: block;
+					font-size: 22px;
+					line-height: 26px;
+					font-weight: 600;
+					padding: 15px;
+					border-bottom: 2px solid lighten( $brand-purple, 70% );
+					text-shadow: 1px 1px 0 #fff;
+					text-decoration: none;
+					color: $brand-purple;
+					@include vendor(transition, all, .2s ease-in-out);
+
+					&:hover {
+						background: lighten( $brand-purple, 68% );
+					}
+
+					&.selected, &.selected:hover {
+						background: $brand-red;
+						color: #fff;
+						text-shadow: none;
+					}
+
+					h2 {
+						font-family: $titillium;
+						font-size: 24px;
+						line-height: 24px;
+						font-weight: 700;
+						margin-bottom: 0px;
+					}
+				}
+
+				&:first-child {
+				
+					a {
+						border-top: 2px solid lighten( $brand-purple, 70% );
+					}
+
+				}
+			}
+		}
+	}
+
+	#content {
+
+		a {
+			color: $brand-red;
+			text-decoration: underline;
+		}
+
+		p {
+			margin-bottom: 15px;
+		}
+
+		#tabs {
+
+			li {
+				display: none;
+
+				ul li {
+					display: block;
+				}
+
+				&.selected {
+					display: block;
+				}
+
+				h2 {
+					font-size: 30px;
+					line-height: 34px;
+				}
+
+				p {
+					margin-bottom: 15px;
+					line-height: 28px;
+				}
+
+				a {
+					color: $brand-red;
+					text-decoration: underline;
+				}
+
+				iframe {
+					margin-bottom: 15px;
+					max-width: 100%;
+				}
+			}
+		}
+	}
+
+	.staff-container {
+		position: relative;
+		margin-bottom: 50px;
+
+		.staff-image {
+			width: 100%;
+			height: 200px;
+			margin-bottom: 20px;
+			@include vendor(border-radius, 20px);
+			box-shadow: inset 0 0 8px rgba(0,0,0,.1);
+			@include vendor(transition, all, .5s ease-in-out);
+
+			&:hover {
+				box-shadow: inset 0 0 45px rgba(0,0,0,.2);
+			}
+		}
+
+		.position {
+			margin-bottom: 2px !important;
+		}
+
+		.email {
+			display: inline-block;
+			margin-bottom: 5px;
+		}
+
+		ul.staff-social {
+			float: right;
+
+			li {
+				background: #bbb;
+				float: left;
+				margin-left: 5px;
+				text-align: center;
+				@include vendor(border-radius, 5px);
+				@include vendor(transition, all, .2s ease-in-out);
+
+				&.facebook {
+					&:hover {
+						background: $facebook;
+					}
+				}
+
+				&.twitter {
+					&:hover {
+						background: $twitter;
+					}
+				}
+
+				&.google {
+					&:hover {
+						background: $google;
+					}
+				}
+
+				a {
+					display: block;
+					width: 30px;
+					height: 30px;
+					font-family: 'entypo-social';
+					font-size: 40px;
+					line-height: 30px;
+					color: #fff !important;
+					text-decoration: none !important;
+				}
+			}
+		}
+	}
+	
+	.businesses, .registrations {
+		.wrapper {
+			min-height: 240px;
+			margin-bottom: 30px;
+
+			h3 {
+				font-size: 24px;
+				line-height: 26px;
+				border: 1px dotted rgba($brand-purple, .5);
+				background: rgba($brand-purple, .1);
+				padding: 10px 12px;
+				margin-bottom: 0px;
+			}
+
+			h4 {
+				font-weight: 700;
+				font-size: 20px;
+				line-height: 20px;
+				color: $brand-purple;
+				margin-bottom: 5px;
+			}
+
+			p {
+
+				&.close-date {
+					display: inline-block;
+					float: right;
+					margin: 10px 0 0 !important;
+					font-family: $titillium;
+					font-size: 14px;
+					font-weight: 600;
+					color: rgba($brand-purple, .4);
+				}
+			}
+
+			a {
+				&.email {
+					font-size: 14px;
+				}
+			}
+
+			.details {
+				border: 1px dotted rgba($brand-purple, .5);
+				border-top: 0px;
+				padding: 15px;
+			}
+		}
+
+		@include media-query(portable) {
+			padding: 0 25px;
+		}
+	}
+
+	.registrations {
+		.wrapper {
+			min-height: 0px;
+			margin-bottom: 20px;
+
+			p {
+				margin-bottom: 15px;
+			}
+		}
+	}
+
+	@include media-query(portable) {
+
+		&.contact {
+			#page-intro {
+				padding: 0 25px;
+
+				p {
+					padding: 0px;
+				}
+			}
+		}
+	
+		&#home {
+			.shell {
+				padding: 30px 20px;
+			}
+		}
+
+		.shell {
+			padding: 0px;
+			@include vendor(border-radius, 0px);
+		}
+
+		.wrapper {
+			border-bottom: 1px solid rgba($brand-purple, .2);
+			margin-bottom: 30px;
+		}
+
+		#page-image {
+
+			img {
+				@include vendor(border-radius, 0px);
+			}
+		}
+
+		#page-intro {
+
+			h2 {
+				font-size: 32px;
+				line-height: 34px;
+				padding: 0 25px;
+				margin-bottom: 10px;
+			}
+
+			p {
+				padding: 0 25px;
+			}
+
+			.tricol {
+				width: 100%;
+				float: left;
+				padding: 0 10px;
+				text-align: center;
+				margin: 20px 0;
+			}
+		}
+
+		#sidebar {
+			padding: 0 24px;
+			margin-bottom: 45px;
+		}
+
+		#content {
+			padding: 0 25px;
+			a {
+				color: $brand-red;
+				text-decoration: underline;
+			}
+
+			p {
+				margin-bottom: 15px;
+			}
+
+			#tabs {
+
+				li {
+					display: none;
+
+					&.selected {
+						display: block;
+					}
+
+					h2 {
+						font-size: 30px;
+						line-height: 34px;
+					}
+
+					p {
+						margin-bottom: 15px;
+						line-height: 28px;
+					}
+
+					a {
+						color: $brand-red;
+						text-decoration: underline;
+					}
+
+					iframe {
+						margin-bottom: 15px;
+					}
+				}
+			}
+		}
+	}
+}

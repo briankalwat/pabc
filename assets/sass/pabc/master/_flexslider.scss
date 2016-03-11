@@ -1,0 +1,259 @@
+/* Flexslider */
+#flexslider {
+	margin-bottom: 20px;
+
+	@include media-query(lap) {
+		margin-bottom: 0px;
+	}
+
+	@include media-query(palm) {
+		margin-bottom: 0px;
+	}
+
+	.shell {
+		padding: 0px;
+		background: none;
+		overflow: hidden;
+	}
+
+	.flexslider {
+		// height: 460px;
+		background: none;
+		border: 0px;
+		box-shadow: none;
+
+		.slides {
+			height: 460px;
+
+			li {
+				position: relative;
+				overflow: hidden;
+				width: 100%;
+				height: 100%;
+				background: $brand-purple;
+
+				.inner {
+					display: inline-block;
+				    position: relative;
+				    right: -50%;
+				    height: 100%;
+
+				    img {
+				    	position: relative;
+					    left: -50%;
+				    }
+				}
+				
+				a {
+					display: block;
+					text-align: center;
+					height: 100%;
+				}
+
+				.slide-content {
+					padding: 0 15%;
+					z-index: 2;
+					position: relative;
+					top: 30%;
+
+					h2 {
+						font-size: 72px;
+						line-height: 72px;
+						letter-spacing: -.02em;
+						margin-bottom: 20px;
+						color: #fff;
+					}
+
+					p {
+						font-size: 22px;
+						line-height: 28px;
+						font-weight: 500;
+						color: #fff;
+						margin-bottom: 25px;
+					}
+
+					a {
+						font-size: 20px;
+						font-weight: 700;
+						display: inline-block;
+						background: #fff;
+						padding: 12px 15px;
+						@include vendor(border-radius, 5px);
+					}
+				}
+
+				img {
+					height: 100%;
+					max-width: none;
+					margin: 0 auto;
+				}
+			}
+		}
+
+		.flex-control-nav {
+			position: absolute;
+			bottom: 30px;
+
+			li {
+				margin: 0 10px;
+
+				a {
+					display: block;
+					background: rgba(255,255,255,.5);
+					padding: 0px;
+					height: 15px;
+					width: 15px;
+					text-indent: -50px;
+					overflow: hidden;
+					@include vendor(border-radius, 20px);
+
+					&.flex-active {
+						background: rgba(255,255,255,1);
+					}
+				}
+			}
+		}
+
+		.flex-direction-nav a {
+			width: 40px;
+			height: 40px;
+			text-shadow: none;
+			border: 0px;
+			opacity: 1;
+			color: rgba(0,0,0,0);
+			background: rgba(255,255,255,1);
+			@include vendor(border-radius, 5px);
+			@include vendor(transition, all, .1s ease-in-out);
+
+			&:hover {
+				background: rgba(255,255,255,1);
+			}
+
+			&.flex-prev {
+				left: -50px;
+			}
+
+			&.flex-next {
+				right: -50px;
+			}
+		}
+
+		&:hover {
+		
+			.flex-direction-nav a {
+
+				&.flex-prev {
+					left: 30px ;
+
+					span.arrow {
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						margin: -10px 0 0 -6px;
+						width: 0; 
+						height: 0; 
+						border-top: 10px solid transparent;
+						border-bottom: 10px solid transparent; 
+						border-right:10px solid $brand-purple; 
+					}
+				}
+
+				&.flex-next {
+					right: 30px;
+
+					span.arrow {
+						position: absolute;
+						top: 50%;
+						right: 50%;
+						margin: -10px -6px 0 0;
+						width: 0; 
+						height: 0; 
+						border-top: 10px solid transparent;
+						border-bottom: 10px solid transparent; 
+						border-left:10px solid $brand-purple; 
+					}
+				}
+			}
+		}
+	}
+
+	@include media-query(lap) {
+		.slide-content {
+			h2 {
+				font-size: 48px !important;
+				line-height: 48px !important;
+			}
+		}
+	}
+
+	@include media-query(palm) {
+		// position: relative;
+		// top: 84px;
+		// margin-bottom: -16px;
+
+		.flexslider {
+			// height: 400px;
+
+			&:hover {
+				.flex-direction-nav {
+					a {
+						@include vendor(border-radius, 0px);
+
+						&.flex-next {
+							right: -5px;
+							span.arrow {
+								margin: -10px -4px 0 0;
+							}
+						}
+
+						&.flex-prev {
+							left: -5px;
+							span.arrow {
+								margin: -10px 0 0 -4px;
+							}
+						}
+					}
+				}
+			}
+
+			.slides {
+				height: 480px;
+				li {
+					.slide-content {
+						h2 {
+							font-size: 24px;
+							line-height: 24px;
+							margin-bottom: 10px;
+						}
+
+						p {
+							font-size: 18px;
+							line-height: 24px;
+							color: #fff;
+							margin-bottom: 20px;
+						}
+
+						a {
+							font-size: 18px;
+							padding: 10px 13px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	@media screen and (max-width: 530px) {
+		.slides {
+			height: 280px !important;
+
+			.slide-content {
+				top: 20% !important;
+			}
+		}
+
+		.flex-control-nav {
+			bottom: 20px !important;
+		}
+	}
+}

@@ -1,0 +1,148 @@
+#form1 {
+	float: left;
+	clear: both;
+
+	input, textarea {
+		padding: 5px 10px;
+		border: 1px solid #aaa;
+		box-shadow: inset 0 2px 7px #ccc;
+		resize: none;
+		font-weight: 600;
+		@include vendor(border-radius, 3px);
+
+		&:hover {
+			border: 1px solid $brand-purple;
+		}
+
+		&:focus {
+			border: 1px solid $brand-red;
+			outline: none;
+		}
+	}
+
+	#saveForm {
+		box-shadow: none;
+		border: 0px;
+		width: 520px;
+		padding: 15px 0;
+		background: $brand-purple;
+		color: #fff;
+		font-weight: 700;
+		@include vendor(border-radius, 5px);
+
+		&:hover {
+			background: $brand-red;
+		}
+	}
+
+	#Field5 {
+		height: 200px;
+		width: 520px;
+	}
+
+	ul {
+		li {
+			float: left;
+
+			span {
+				float: left;
+			}
+
+			label {
+				margin-bottom: 5px;
+			}
+
+			&#foli1 {
+				margin-right: 25px;
+
+				span {
+					margin-right: 15px;
+				}
+
+				#Field1, #Field2 {
+					width: 250px;
+				}
+			}
+
+			&#foli3 {
+				clear: both;
+
+				#Field3 {
+					width: 520px;
+				}
+			}
+
+			&#foli4 {
+				margin-right: 45px;
+				clear: both;
+
+				span {
+					&.symbol {
+						margin: 0 4px;
+						padding-top: 5px;
+						font-size: 26px;
+						color: #aaa;
+					}
+
+					label {
+						text-align: center;
+						font-size: 16px;
+						letter-spacing: .09em;
+						font-style: italic;
+						color: #aaa;
+					}
+				}
+			}
+
+			&#foli5 {
+				clear: both;
+			}
+
+			&.buttons {
+				clear: both;
+			}
+		}
+	}
+
+	@include media-query(portable) {
+		width: 100%;
+		padding: 0 25px;
+
+		input, textarea {
+			padding: 3px 5px;
+			border: 1px solid #aaa;
+			box-shadow: inset 0 2px 7px #ccc;
+			resize: none;
+			font-weight: 600;
+			@include vendor(border-radius, 3px);
+		}
+
+		#saveForm {
+			width: 100%;
+		}
+
+		ul {
+			li {
+				width: 100%;
+
+				&#foli3 {
+					clear: both;
+
+					#Field3 {
+						width: 100%;
+					}
+				}
+
+				&#foli4 {
+					margin-right: 0px;
+					margin-bottom: 0px;
+				}
+				&#foli5 {
+					textarea {
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+}

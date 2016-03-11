@@ -1,0 +1,62 @@
+* {
+	font-smooth:always;
+	@include vendor(font-smoothing, antialiased);
+}
+
+.preload * {
+	@include vendor(transition, none !important);
+}
+
+.clearfix:after{
+	clear:both;
+	content:'.';
+	display:block;
+	visibility:hidden;
+	height:0;
+}
+
+.shell {
+	position: relative;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 30px 0;
+	background: #fff;
+}
+
+html {
+	font-family: $titillium;
+}
+
+body {
+	background: $brand-purple;
+	padding: 0 20px;
+
+	@include media-query(portable) {
+		padding: 0px;
+	}
+}
+
+a {
+	color: $brand-purple;
+	text-decoration: none;
+
+	&.btn {
+		display: inline-block;
+		padding: 9px 13px 10px;
+		@include vendor(border-radius, 5px);
+		background: $brand-purple;
+		font-size: 18px;
+		color: #fff !important;
+		font-weight: 700;
+		text-decoration: none !important;
+		@include vendor(transition, all .3s);
+
+		&:hover {
+			background: $brand-red;
+		}
+	}
+}
+
+li {
+	color: $brand-purple;
+}

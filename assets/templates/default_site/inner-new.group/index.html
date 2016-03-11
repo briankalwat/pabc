@@ -1,0 +1,83 @@
+{embed="embeds/_head"}
+{embed="embeds/_header"}
+
+{embed="embeds/_subnav"}
+
+<div class="page-content">
+	<div class="shell clearfix">
+		<div class="grid">
+			{if segment_1 == 'missions'}
+				{exp:channel:entries channel="{segment_1}" limit="1"}
+			{/if}
+			{if segment_1 != 'missions'}
+				{exp:channel:entries channel="{segment_2}" limit="1" dynamic="off" sort="asc"}
+			{/if}
+			{if pages_image}
+			<div id="page-image" class="grid__item one-whole">
+				{exp:ce_img:single src="{pages_image}" max_width="1100" max_height="360" add_dims="no" crop="yes" allow_scale_larger="no" quality="99"}
+			</div>{/if}<!--
+
+
+			{if pages_bodycontent}
+			--><div id="page-intro" class="grid__item one-whole clearfix">
+				{pages_bodycontent}
+					{heading}
+						{value}
+					{/heading}
+					{wysiwyg}
+						{if pages_logo}
+						<img src="{pages_logo}" alt="" class="page-logo">
+						{/if}
+						{value}
+					{/wysiwyg}
+				{/pages_bodycontent}
+			</div><!--
+			{/exp:channel:entries}
+			-->{if segment_1 != 'missions'}<div class="grid__item  one-third palm-one-whole">
+	           <div id="sidebar">
+	           	<ul>
+	           		{exp:channel:entries channel="{segment_2}" offset="1" dynamic="off" orderby="page_order" sort="asc"}
+	           			<li><a href="#" id="{entry_id}" class="{if count == '1'} selected{/if}">{title}</a></li>
+	           		{/exp:channel:entries}
+	           	</ul>
+	           </div>
+	       </div><!--
+
+	    --><div class="grid__item  two-thirds palm-one-whole">
+	    		<div id="content">
+	    			<!-- Page Tabs -->
+	    			<ul id="tabs">
+	    			{exp:channel:entries channel="{segment_2}" offset="1" dynamic="off" orderby="page_order" sort="asc"}
+	    				<li class="{entry_id} tab{if count == '1'} selected{/if}">
+	    				<h2>{title}</h2>
+	    				{pages_bodycontent}
+	    					{heading}
+	    						{value}
+	    					{/heading}
+	    					{wysiwyg}
+	    						{value}
+	    					{/wysiwyg}
+	    					{gallery}
+	    						{if images}
+    								{images}
+    									Thumbnail: <img src="{thumb}" /><br />
+    									Original: <img src="{image}" /><br />
+    									Image type: {extension}<br />
+    									Image size: {size}<br />
+    									Caption: {caption}<br />
+    								{/images}
+    							{/if}
+	    					{/gallery}
+	    				{/pages_bodycontent}
+	    				</li>
+	    			{/exp:channel:entries}
+	    			</ul>
+	    			<!-- end Page Tabs -->
+				</div>
+	       </div>{/if}
+       </div>
+		{embed="embeds/_crumbs"}
+	</div>
+</div>
+
+{embed="embeds/_footer"}
